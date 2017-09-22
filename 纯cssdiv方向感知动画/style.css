@@ -1,0 +1,121 @@
+.box
+{
+    position: relative;
+
+    float: left;
+    overflow: hidden;
+
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+
+    border-radius: 30px;
+}
+.box_top,
+.box_bottom,
+.box_left,
+.box_right,
+.box_center
+{
+    position: absolute;
+
+    width: inherit;
+    height: inherit;
+
+    transition: transform .5s;
+}
+.box_right:before,
+.box_left:before,
+.box_top:before,
+.box_bottom:before,
+.box_center:before
+{
+    position: absolute;
+
+    width: 70.71%;
+    height: 70.71%;
+
+    content: '';
+    transform: rotate(45deg);
+}
+.box_right:hover,
+.box_left:hover,
+.box_top:hover,
+.box_bottom:hover,
+.box_center:hover
+{
+    z-index: 1;
+
+    transform: translateX(0);
+
+    background-color: #2bdec6;
+}
+.box_right:hover:before,
+.box_left:hover:before,
+.box_top:hover:before,
+.box_bottom:hover:before,
+.box_center:hover:before
+{
+    width: 100%;
+    height: 100%;
+
+    transform: none;
+}
+.box_center
+{
+    z-index: -1;
+
+    background-color: #dfb52c;
+}
+
+.box_bottom
+{
+    transform: translateY(100%);
+}
+.box_bottom:before
+{
+    bottom: 100%;
+    left: 0;
+
+    transform-origin: 0 100%;
+}
+
+
+.box_left
+{
+    transform: translateX(-100%);
+}
+.box_left:before
+{
+    left: 100%;
+
+    transform-origin: 0 0;
+}
+
+.box_right
+{
+    transform: translateX(100%);
+}
+.box_right:before
+{
+    right: 100%;
+    bottom: 0;
+
+    transform-origin: 100% 100%;
+}
+
+.box_top
+{
+    transform: translateY(-100%);
+}
+
+.box_top:before
+{
+    top: 100%;
+    right: 0;
+
+    transform-origin: 100% 0;
+    /*
+    为啥设置了 变形远点 100% 0 之后位置会在哪！我艹
+ */
+}
